@@ -1,5 +1,5 @@
 
-const AnswerCard = ({ answer, citation}) => {
+const AnswerCard = ({ answer, citation, onCitationClick }) => {
   return (
     <div className="border-t pt-4">
       <div className="bg-gray-50 p-4 rounded shadow">
@@ -9,14 +9,12 @@ const AnswerCard = ({ answer, citation}) => {
           <p className="text-gray-700">{citation.text}</p>
 
           {/* Link shown as 'Download Judgment PDF' */}
-          <a
-            href={citation.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 underline hover:text-blue-800"
+          <button
+            onClick={() => onCitationClick(citation.link)}
+            className="text-blue-600 underline hover:text-blue-800 cursor-pointer bg-none border-none p-0"
           >
             Download Judgment PDF
-          </a>
+          </button>
         </div>
       </div>
     </div>
